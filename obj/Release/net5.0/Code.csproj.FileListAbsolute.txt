@@ -1,0 +1,4 @@
+D:\staa99\Desktop\Code\obj\Release\net5.0\Code.GeneratedMSBuildEditorConfig.editorconfig
+D:\staa99\Desktop\Code\obj\Release\net5.0\Code.AssemblyInfoInputs.cache
+D:\staa99\Desktop\Code\obj\Release\net5.0\Code.AssemblyInfo.cs
+D:\staa99\Desktop\Code\obj\Release\net5.0\Code.csproj.CoreCompileInputs.cache
