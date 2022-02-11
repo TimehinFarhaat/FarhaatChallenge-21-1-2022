@@ -10,114 +10,135 @@ namespace Code
     {
         public static void Main()
         {
-            Question2();
+           // Question2();
             Question1();
         }
 
 
         public static void Question2()
         {
-            int[] a = new[] { 1, 3, 2, 2, 5, 2, 3, 7 };
-            HashSet<int> b = new HashSet<int>();
-            for (int i = 0; i < a.Length; i++)
+            bool check = true;
+            var e = "ab";
+            var s1 = e.ToCharArray();
+            var h=new List<string>();
+            string s2 = "eidboaoo";
+            string a = "";
+            for (int i = 0; i < s1.Length; i++)
             {
-                for (int j = 0; j < a.Length - 1; j++)
+                for (int j = 0; j < s1.Length; j++)
                 {
-                    if (a[i] > a[j])
+                    var b = s1[ i];
+                    s1[i] = s1[j];
+                    s1[j] = b;
+                    a = new string(s1);
+                    if (!h.Contains(a))
                     {
-                        if (a[i] - a[j] == 1)
-                        {
-                            b.Add(a[i]);
-                            b.Add(a[j]);
+                        h.Add(a);
+                    }
 
-                        }
-                    }
-                    else
+                    s1 = a.ToCharArray();
+                }
+                s1 = e.ToCharArray();
+
+                for (int j = s1.Length-1; j >=0; j--)
+                {
+                    var b = s1[ i];
+                    s1[i] = s1[j];
+                    s1[j] = b;
+                    a = new string(s1);
+                    if (!h.Contains(a))
                     {
-                        if (a[j] - a[i] == 1)
-                        {
-                            b.Add(a[i]);
-                            b.Add(a[j]);
-                        }
+                        h.Add(a);
                     }
+
+                    s1 = a.ToCharArray();
+                }
+                s1 = e.ToCharArray();
+            }
+
+            foreach (var s in h)
+            {
+                if (s2.Contains(s))
+                {
+                    check = true;
+                    break;
+                }
+                else
+                {
+                    check = false;
                 }
             }
 
-            Hashtable t = new Hashtable();
-            foreach (var c in b)
-            {
-                t.Add(c, 0);
-            }
-
-            foreach (var r in a)
-            {
-                if (t.ContainsKey(r))
-                {
-                    t[r] = (int) t[r] + 1;
-                }
-            }
-
-            List<int> list = new List<int>();
-            List<int> list1 = new List<int>();
-            foreach (DictionaryEntry entry in t)
-            {
-                list.Add((int) entry.Key);
-                list1.Add((int) entry.Value);
-            }
-
-            for (int i = 0; i < list.Count - 1; i++)
-            {
-                for (int j = 0; j < list.Count - 1; j++)
-                {
-                    if (list[j] > list[j + 1])
-                    {
-                        int temp = list[j];
-                        list[j] = list[j + 1];
-                        list[j           + 1] = temp;
-
-                        int tem = list1[j];
-                        list1[j] = list1[j + 1];
-                        list1[j            + 1] = tem;
-
-
-                    }
-                }
-            }
-
-            int w = 0;
-            int y = 0;
-            for (int i = 0; i < list.Count - 1; i++)
-            {
-                if (list[i + 1] - list[i] == 1)
-                {
-                    w = list1[i] + list1[i + 1];
-                    if (y < w)
-                    {
-                        y = w;
-                    }
-
-                }
-            }
-
-            Console.WriteLine(y);
-
+            Console.WriteLine(check);
 
         }
 
 
         public static void Question1()
         {
-            int a = 5;
-            int v = 1;
-            for (int i = 1; i <= a; i++)
+            int n = 3;
+            string c = "";
+            var d = "";
+            var e = "";
+                                                     
+            var g=new List<string>();
+            for (int i = 0; i < n; i++)
             {
-                a -= v;
-                v++;
+                c += "()";
+               
             }
-            Console.WriteLine(v-1);
 
+            var t = c.ToCharArray();
+            for (int i = 0; i < c.Length; i++)
+            {
+                for (int j = 0; j < t.Length; j++)
+                {
+                    var b = t[ i];
+                    t[i] = t[j];
+                    t[j] = b;
+                    
 
+                    e=new string(t);
+                    if (e[0]!=')' && e[e.Length-1] !='(')
+                    {
+                        if (!g.Contains(e))
+                        {
+                            g.Add(e);
+                        }
+                    }
+
+                    t = e.ToCharArray();
+                }
+                t = c.ToCharArray();
+
+                for (int j = t.Length-1; j >= 0; j--)
+                {
+                    var b = t[ i];
+                    t[i] = t[j];
+                    t[j] = b;
+                    d = new string(t);
+
+                    e = new string(d);
+                    if (e[0] != ')' && e[e.Length - 1] != '(')
+                    {
+                        if (!g.Contains(e))
+                        {
+                            g.Add(e);
+                        }
+                    }
+
+                    t = e.ToCharArray();
+                }
+
+                t = c.ToCharArray();
+            }
+            foreach (var item in g)
+            {
+                Console.WriteLine(item);
+            }
         }
+
+
     }
 
 
